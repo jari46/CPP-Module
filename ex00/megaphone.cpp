@@ -1,5 +1,5 @@
 #include <iostream> //cout
-#include <cstring> //strlen()
+#include <string> //strlen()
 #include <cctype> //toupper()
 
 int	main(int argc, char **argv)
