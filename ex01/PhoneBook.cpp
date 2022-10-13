@@ -35,8 +35,7 @@ void PhoneBook::add_contact(void) {
   std::cout << "** First Name: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) { exit(EXIT_FAILURE);}
-  input.erase(input.find_last_not_of(" ") + 1);
-  if (input.empty()) {
+  if (input.find_last_not_of(" ") == input.npos) {
     std::cout << "No empty field is allowed..." << std::endl;
     return ;
   }
@@ -45,8 +44,7 @@ void PhoneBook::add_contact(void) {
   std::cout << "** Last Name: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
-  input.erase(input.find_last_not_of(" ") + 1);
-  if (input.empty()) {
+  if (input.find_last_not_of(" ") == input.npos) {
     std::cout << "No empty field is allowed..." << std::endl;
     return ;
   }
@@ -55,8 +53,7 @@ void PhoneBook::add_contact(void) {
   std::cout << "** Nickname: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
-  input.erase(input.find_last_not_of(" ") + 1);
-  if (input.empty()) {
+  if (input.find_last_not_of(" ") == input.npos) {
     std::cout << "No empty field is allowed..." << std::endl;
     return ;
   }
@@ -65,8 +62,7 @@ void PhoneBook::add_contact(void) {
   std::cout << "** Phone Number: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
-  input.erase(input.find_last_not_of(" ") + 1);
-  if (input.empty()) {
+  if (input.find_last_not_of(" ") == input.npos) {
     std::cout << "No empty field is allowed..." << std::endl;
     return ;
   }
@@ -75,8 +71,7 @@ void PhoneBook::add_contact(void) {
   std::cout << "** darkest secret: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
-  input.erase(input.find_last_not_of(" ") + 1);
-  if (input.empty()) {
+  if (input.find_last_not_of(" ") == input.npos) {
     std::cout << "No empty field is allowed..." << std::endl;
     return ;
   }
