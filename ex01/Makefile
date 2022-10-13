@@ -1,6 +1,6 @@
 NAME		:= phonebook0
 
-CC			:= c++
+CXX			:= c++
 CXXFLAGS	:= -Wall -Wextra -Werror
 RM			:= rm -f
 
@@ -38,4 +38,4 @@ fclean:			clean
 re:				fclean all
 
 $(NAME):		$(OBJS)
-				$(CC) $(CXXFLAGS) $^ -o $@
+				$(CXX) $(CXXFLAGS) $^ -o $@
