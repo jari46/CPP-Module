@@ -1,10 +1,10 @@
 NAME		:= megaphone
 
-CC			:= c++
+CXX			:= c++
 CXXFLAGS	:= -Wall -Wextra -Werror
 RM			:= rm -f
 
-ifdef std
+ifdef STD
 	CXXFLAGS	+=	-std=c++98
 endif
 
@@ -19,7 +19,7 @@ OBJS		= $(SRCS:.cpp=.o)
 all:			$(NAME)
 
 std:			fclean
-				$(MAKE) DEBUG=true
+				$(MAKE) STD=true
 
 clean:
 				$(RM) $(OBJS)
@@ -30,4 +30,4 @@ fclean:			clean
 re:				fclean all
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) $^ -o $@
+				$(CXX) $(CFLAGS) $^ -o $@
