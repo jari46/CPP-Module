@@ -7,11 +7,11 @@ PhoneBook::PhoneBook()
   : cmd_add("ADD"), cmd_search("SEARCH"), cmd_exit("EXIT"), first_empty_contact(0), filled_contact(0) {}
 
 int PhoneBook::get_type(std::string &input) const {
-	if (input == "ADD")
+	if (input == cmd_add)
 		return (CMD_ADD);
-	else if (input == "SEARCH")
+	else if (input == cmd_search)
 		return (CMD_SEARCH);
-	else if (input == "EXIT") 
+	else if (input == cmd_exit) 
 		return (CMD_EXIT);
 	else
 		return (CMD_WRONG);
@@ -89,7 +89,8 @@ void PhoneBook::add_contact(void) {
 
 /********  search_contact()  ********/
 
-// if the index is out of range or wrong: undefined behavior(display the first index)
+// if the index is out of range : "Wrong index"
+// or wrong: undefined behavior(display the first index)
 
 void PhoneBook::search_contact(void) {
   std::string input_s;
