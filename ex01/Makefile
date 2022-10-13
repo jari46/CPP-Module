@@ -1,11 +1,15 @@
 NAME		:= phonebook0
 
 CC			:= c++
-CXXFLAGS	:= -Wall -Wextra -Werror -g
+CXXFLAGS	:= -Wall -Wextra -Werror
 RM			:= rm -f
 
-ifdef std
+ifdef STD
 	CXXFLAGS	+=	-std=c++98
+endif
+
+ifdef DEBUG
+	CXXFLAGS	+=	 -g
 endif
 
 SRCS	:= \
@@ -15,11 +19,14 @@ SRCS	:= \
 
 OBJS		= $(SRCS:.cpp=.o)
 
-.PHONY:			all std clean fclean re
+.PHONY:			all std debug clean fclean re
 
 all:			$(NAME)
 
 std:			fclean
+				$(MAKE) STD=true
+
+debug:			fclean
 				$(MAKE) DEBUG=true
 
 clean:
@@ -31,4 +38,4 @@ fclean:			clean
 re:				fclean all
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) $^ -o $@
+				$(CC) $(CXXFLAGS) $^ -o $@

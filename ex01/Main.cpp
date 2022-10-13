@@ -7,7 +7,7 @@ int main(void) {
   std::string input;
 
   while (true) {
-	phonebook0.read_input(input);
+	  phonebook0.read_input(input);
     switch (phonebook0.get_type(input)) {
       case CMD_ADD:
         phonebook0.add_contact();

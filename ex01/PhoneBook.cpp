@@ -59,43 +59,45 @@ void PhoneBook::add_contact(void) {
 
   std::cout << "done!" << std::endl;
 
-	if (first_empty_contact == 7)
+	if (first_empty_contact == PHONEBOOK_SIZE - 1)
     first_empty_contact = 0;
   else
     first_empty_contact++;
 
-  if (filled_contact < 8)
+  if (filled_contact < PHONEBOOK_SIZE)
     filled_contact++;
 }
 
 /********  search_contact()  ********/
 
-// if the index is out of range or wrong: undefined behavior
+// if the index is out of range or wrong: undefined behavior(display the first index)
 
 void PhoneBook::search_contact(void) {
   std::string input_s;
 	
-  display_contact_list();
-  
-  std::cout << "Which index you want to search?: ";
-  getline(std::cin, input_s);
-	if (std::cin.fail()) {
-		exit(EXIT_FAILURE);
-	}
-  std::cout << std::endl;
-  
-  int input_i = std::atoi(input_s.c_str());
-  if (0 <= input_i && input_i <= 7)
-    display_contact(input_i);
-  else
-    std::cout << "Wrong index..." << std::endl;
+  if (filled_contact <= 0)
+    std::cout << "add first..." << std::endl;
+  else {
+    display_contact_list();
+    
+    std::cout << "Which index you want to search?: ";
+    getline(std::cin, input_s);
+    if (std::cin.fail()) { exit(EXIT_FAILURE);}
+    std::cout << std::endl;
+    
+    int input_i = std::atoi(input_s.c_str());
+    if (0 <= input_i && input_i <= 7)
+      display_contact(input_i);
+    else
+      std::cout << "Wrong index..." << std::endl;
+  }
 }
 
-std::string PhoneBook::get_content_truncated(std::string str) {
+static std::string get_content_truncated(std::string str) {
   std::string str_truncated = str;
 
   std::cout << std::setw(PADDING_SIZE);
-  if (10 < str_truncated.length()) {
+  if (PADDING_SIZE < str_truncated.length()) {
     str_truncated.resize(10);
     str_truncated.replace(9, 1, ".");
   }
@@ -103,24 +105,23 @@ std::string PhoneBook::get_content_truncated(std::string str) {
 }
 
 void PhoneBook::display_contact_list(void) {
-  if (0 < filled_contact) {
-    std::cout << "n | first name |  last name |   nickname\n";
-    for (int i = 0; i < filled_contact; i++) {
-      Contact working_contact = contacts[i];
-      std::cout << i << " | " \
-      << get_content_truncated(working_contact.get_first_name()) << " | " \
-      << get_content_truncated(working_contact.get_last_name()) << " | " \
-      << get_content_truncated(working_contact.get_nickname()) << std::endl;
-    }
+  std::cout << "n" << " | " \
+  << get_content_truncated("First Name") << " | " \
+  << get_content_truncated("Last Name") << " | " \
+  << get_content_truncated("Nickname") << std::endl;
+
+  for (int i = 0; i < filled_contact; i++) {
+    Contact working_contact = contacts[i];
+    std::cout << i << " | " \
+    << get_content_truncated(working_contact.get_first_name()) << " | " \
+    << get_content_truncated(working_contact.get_last_name()) << " | " \
+    << get_content_truncated(working_contact.get_nickname()) << std::endl;
   }
-  else
-    std::cout << "add first..." << std::endl;
 }
 
 void PhoneBook::display_contact(int index) {
-  if (filled_contact <= index) {
+  if (filled_contact <= index)
     std::cout << "No content yet..." << std::endl;
-  }
   else {
     for (int i = 0; i < filled_contact; i++) {
       if (i == index) {
