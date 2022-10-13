@@ -4,8 +4,6 @@
 #include <iostream>
 #include <iomanip>
 
-#define FIELD_SIZE	5
-
 class Contact {
 	private:
 		std::string first_name;

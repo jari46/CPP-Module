@@ -35,26 +35,51 @@ void PhoneBook::add_contact(void) {
   std::cout << "** First Name: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) { exit(EXIT_FAILURE);}
+  input.erase(input.find_last_not_of(" ") + 1);
+  if (input.empty()) {
+    std::cout << "No empty field is allowed..." << std::endl;
+    return ;
+  }
   working_contact.set_first_name(input);
 
   std::cout << "** Last Name: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
+  input.erase(input.find_last_not_of(" ") + 1);
+  if (input.empty()) {
+    std::cout << "No empty field is allowed..." << std::endl;
+    return ;
+  }
   working_contact.set_last_name(input);
 
   std::cout << "** Nickname: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
+  input.erase(input.find_last_not_of(" ") + 1);
+  if (input.empty()) {
+    std::cout << "No empty field is allowed..." << std::endl;
+    return ;
+  }
   working_contact.set_nickname(input);
 
   std::cout << "** Phone Number: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
+  input.erase(input.find_last_not_of(" ") + 1);
+  if (input.empty()) {
+    std::cout << "No empty field is allowed..." << std::endl;
+    return ;
+  }
   working_contact.set_phone_number(input);
 
   std::cout << "** darkest secret: ";
 	getline(std::cin, input);
 	if (std::cin.fail()) {exit(EXIT_FAILURE);}
+  input.erase(input.find_last_not_of(" ") + 1);
+  if (input.empty()) {
+    std::cout << "No empty field is allowed..." << std::endl;
+    return ;
+  }
   working_contact.set_darkest_secret(input);
 
   std::cout << "done!" << std::endl;
