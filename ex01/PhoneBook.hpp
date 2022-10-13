@@ -11,13 +11,6 @@
 #define CMD_ADD 2
 #define CMD_SEARCH 3
 
-// typedef enum Command {
-//   CMD_WRONG, 
-//   CMD_ADD, 
-//   CMD_SEARCH, 
-//   CMD_EXIT, 
-// } Command;
-
 class PhoneBook {
 	private:
 		const std::string cmd_add;
@@ -29,11 +22,11 @@ class PhoneBook {
 		int filled_contact;
 
 		void display_contact_list(void);
-    void display_contact(int index);
+    	void display_contact(int index);
 
 	public:
-    PhoneBook();
-  
+    	PhoneBook();
+
 		int get_type(std::string &input) const;
 		void read_input(std::string &input);
 

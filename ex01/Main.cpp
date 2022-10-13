@@ -1,6 +1,5 @@
-#include <iostream>
+#include <iostream> // cout, endl, string
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 int main(void) {
   PhoneBook phonebook0;
